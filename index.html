@@ -4,130 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopEase - Online Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Koulen&family=Metal&family=Preahvihear&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <title>Product List</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background: #0d6efd;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
 
 <body>
 
-    <header>
-        <h1>Meta Car KH</h1>
-        <nav>
-            <a href="#" style="font-family: Kantumruy Pro;">ទំព័រដើម</a>
-            <a href="#" style="font-family: Kantumruy Pro;">រថយន្ត</a>
-            <a href="#" style="font-family: Kantumruy Pro;">អំពីយើង</a>
-            <a href="#" style="font-family: Kantumruy Pro;">ទាក់ទងពួកយើង</a>
-        </nav>
-    </header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">CarShop</a>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h2 style="font-family: 'Koulen', Courier, monospace; font-weight: 100;">
-                ជ្រើសរើសរថយន្តក្នុងក្ដីស្រមៃរបស់លោកអ្នកនៅទីនេះ</h2>
-            <p style="font-family: Kantumruy Pro; font-weight: 400;">
-                យើងផ្ដល់ជូននូវគេហទំព័រឈានមុខគេក្នុងការនាំយករថយន្តថ្មី និងមួយទឹក​មកលក់ក្នុងតម្លៃសមរម្យប្រកបដោយគុណភាព​
-                និង​ ទំនុកចិត្ត </p>
-            <a href="#" class="btn" ​ style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Q2FyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=900"
-            alt="Fashion Collection">
-    </section>
+    </nav>
 
-    <section class="products">
-        <h2 style="font-family: Koulen; font-weight: 200;">រថយន្តដែលមាននៅក្នុងស្តុក</h2>
-        <div class="product-grid">
-            <div class="product">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5NnQkEVgPKEQCCGA5nOYu5XtOZP9TWzSzLMn_hMaohPGOYd9hnYNzPC8hoYVMrE4Od9ykdwoAUrCQAysmfFke-TtcYerq7MsrSQf5-bEtpvFCsVy8mWQ5Z-wy06A8kGN58hHh8d6IaYM/s1600/2014_lexus_nx_00.jpg"
-                    alt="Lexus NX200T">
-                <h3>Lexus NX200T 2015</h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$35,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
-            </div>
+    <!-- TITLE -->
+    <h3 class="text-center mt-4 fw-bold">List Of All Products</h3>
 
-            <div class="product">
-                <img src="https://images.automatrix.com/1/103645/99x7oXry5LA.jpg" alt="Lexus NX200T">
-                <h3>Lexus RC200T 2015 </h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$35,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
+    <!-- PRODUCT LIST -->
+    <div class="container mt-4">
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card shadow-sm">
+                    <img src="./18Nov2025/image02.png" class="card-img-top" alt="Car">
+                    <div class="card-body">
+                        <h5 class="card-title">Lexus RC350</h5>
+                        <p class="card-text">$50,000</p>
+                        <a href="#" class="btn btn-primary w-100">Buy now</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="product">
-                <img src="https://alwan.global/wp-content/uploads/2023/06/2023-lexus-lx600-ashwood-white-for-sale-scaled.webp"
-                    alt="Lexus NX200T">
-                <h3>Lexus LX600 2024</h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$250,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
-            </div>
-            <div class="product">
-                <img src="https://www.servcolexus.com/on/demandware.static/-/Sites-ServcoLexus-Library/default/dw94d4413e/images/model/RX/exterior/2024_RX_Exterior_1.jpg"
-                    alt="Lexus NX200T">
-                <h3>Lexus Rx350 2025</h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$35,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
-            </div>
-            <div class="product">
-                <img src="https://news-site-za.s3.af-south-1.amazonaws.com/images/2016/05/IMG_6951.jpg"
-                    alt="Lexus NX200T">
-                <h3>Mercedes-Benz C300</h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$35,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
-            </div>
-            <div class="product">
-                <img src="https://plus-auto.fra1.cdn.digitaloceanspaces.com/vehicles_images/59119/59119-1121238.webp"
-                    alt="Lexus NX200T">
-                <h3>Mercedes-Benz S500</h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$55,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
-            </div>
-            <div class="product">
-                <img src="https://www.topgear.com/sites/default/files/2024/10/1-BMW-M4-review-2024-UK.jpg"
-                    alt="Lexus NX200T">
-                <h3>BMW M4 Competition</h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$55,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
-            </div>
-            <div class="product">
-                <img src="https://www.picknbuy24.com/photo/0120788363/01_l3.jpg" alt="Lexus NX200T">
-                <h3>Toyota Prius 2010</h3>
-                <p style="font-family: Kantumruy Pro; font-weight: 400;">រថយន្តនៅថ្មីស្អាតទទួលយកបាន </p>
-                <div class="price">$19,000</div>
-                <a href="#" class="btn" style="font-family: Kantumruy Pro;">ទិញឥឡូវ</a>
+            <!-- CARD 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card shadow-sm">
+                    <img src="./18Nov2025/image02.png" class="card-img-top" alt="Car">
+                    <div class="card-body">
+                        <h5 class="card-title">Lexus RC350</h5>
+                        <p class="card-text">$50,000</p>
+                        <a href="#" class="btn btn-primary w-100">Buy now</a>
+                    </div>
+                </div>
             </div>
 
+            <!-- CARD 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card shadow-sm">
+                    <img src="./18Nov2025/image02.png" class="card-img-top" alt="Car">
+                    <div class="card-body">
+                        <h5 class="card-title">Lexus RC350</h5>
+                        <p class="card-text">$50,000</p>
+                        <a href="#" class="btn btn-primary w-100">Buy now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card shadow-sm">
+                    <img src="./18Nov2025/image02.png" class="card-img-top" alt="Car">
+                    <div class="card-body">
+                        <h5 class="card-title">Lexus RC350</h5>
+                        <p class="card-text">$50,000</p>
+                        <a href="#" class="btn btn-primary w-100">Buy now</a>
+                    </div>
+                </div>
+            </div>
 
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <p>© 2025 Meta Car KH. All rights reserved. Contact us now:</p>
-        <div class="social-links">
-            <a href="https://t.me/YourTelegramUsername" target="_blank">
-                <img src="https://img.icons8.com/?size=100&id=25n4hOEoY7ss&format=png&color=000000" alt="Telegram"
-                    width="35" height="35">
-            </a>
-            <a href="https://www.facebook.com/YourFacebookPage" target="_blank">
-                <img src="https://img.icons8.com/?size=100&id=uLWV5A9vXIPu&format=png&color=000000" alt="Facebook"
-                    width="35" height="35">
-            </a>
-            <a href="https://www.tiktok.com/@YourTiktokAccount" target="_blank">
-                <img src="https://img.icons8.com/?size=100&id=118640&format=png&color=000000" alt="TikTok" width="35"
-                    height="35">
-            </a>
-        </div>
+    <!-- FOOTER -->
+    <footer class="text-center">
+        <p class="mb-0">© 2025 CarShop. All Rights Reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
