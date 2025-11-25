@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    .sticky-col {
+      position: sticky;
+      top: 20px;
+    }
+
+    .thumb-img {
+      height: 60px;
+      margin-bottom: 10px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .main-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .related-img {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <body>
+
+  <!-- NAVBAR GOES HERE -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-weight: bold;">EV1 Cambodia</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAVBAR -->
+
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <!-- Thumbnails -->
+      <div class="col-md-1">
+        <div class="sticky-col">
+          <img src="./model3in.png" class="thumb-img" onclick="changeMainImage('./model3in.png')" />
+          <img src="./image.png" class="thumb-img" onclick="changeMainImage('./image.png')" />
+          <img src="./backseat.png" class="thumb-img" onclick="changeMainImage('./backseat.png')" />
+          <img src="./trunk.png" class="thumb-img" onclick="changeMainImage('./trunk.png')" />
+        </div>
+      </div>
+
+      <!-- Main Image -->
+      <div class="col-md-6">
+        <div class="sticky-col">
+          <img src="./model3.png" id="mainImage" class="main-img" />
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="col-md-5">
+        <h2 style="font-weight: bold;">Tesla Model 3</h2>
+        <p>Tesla Model 3 is a sleek, all-electric sedan designed for efficiency, performance, and advanced technology. It seats up to five passengers and features a minimalist interior highlighted by a large touchscreen display for navigation, media, and vehicle controls. The Model 3 offers rear-wheel drive (RWD) and dual motor all-wheel drive (AWD) configurations, with quick acceleration and a quiet, comfortable ride.</p>
+
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">Check Out</button>
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#paymentModal">Payment</button>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="mt-5">
+      <h3>Cars in showroom</h3>
+
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-3">
+                <div class="card">
+                  <img src="./models.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">Tesla Model S</p></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <img src="./modelx.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">Tesla Model X</p></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <img src="./modelY.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">Tesla Model Y</p></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <img src="./cybertruck.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">Tesla Cybertruck</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-3">
+                <div class="card">
+                  <img src="./Han.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">BYD HAN EV</p></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <img src="./Tang.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">BYD Tang EV</p></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <img src="./Seal.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">BYD Seal 07</p></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <img src="./sealion7.png" class="card-img-top related-img" />
+                  <div class="card-body"><p class="card-text">BYD Sealion7</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div class="modal fade" id="paymentModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">...,.......</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Checkout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control mb-3" placeholder="name@example.com" />
+
+          <label class="form-label">Payment Method</label>
+
+          <select class="form-select mb-3">
+          
+            <option selected>Choose payment</option>
+            <option value="1">ABA</option>
+            <option value="2">Wing</option>
+            <option value="3">ACLEDA</option>
+          </select>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="delivery" id="del1" />
+            <label class="form-check-label" for="del1">Delivery</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="delivery" id="del2" checked />
+            <label class="form-check-label" for="del2">Pick Up</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function changeMainImage(src) {
+      document.getElementById("mainImage").src = src;
+    }
+  </script>
+    ...
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function changeMainImage(src) {
+      document.getElementById("mainImage").src = src;
+    }
+  </script>
+
+  <!-- FOOTER GOES HERE -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-1">© 2025 MyShop. All rights reserved.</p>
+      <p class="small mb-0">Electric Vehicles | Accessories | Services</p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+</body>
+</html>
+
+</body>
+
+</html>
