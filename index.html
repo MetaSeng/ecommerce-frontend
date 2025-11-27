@@ -1,254 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Page</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Technology | Future Solutions</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Kantumruy+Pro:wght@100;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    .sticky-col {
-      position: sticky;
-      top: 20px;
+    body {
+      font-family: "Inter", "Kantumruy Pro", sans-serif;
+      background-color: #030712;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    .thumb-img {
-      height: 60px;
-      margin-bottom: 10px;
-      width: 100%;
-      object-fit: cover;
+    .font-khmer {
+      font-family: "Kantumruy Pro", sans-serif;
     }
 
-    .main-img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
+    .font-mono {
+      font-family: "JetBrains Mono", monospace;
     }
 
-    .related-img {
-      height: 200px;
-      object-fit: cover;
+    @keyframes blob {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
     }
+    .animate-blob { animation: blob 7s infinite; }
+    .delay-2s { animation-delay: 2s; }
+    .delay-4s { animation-delay: 4s; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb {
+      background: #374151;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
   </style>
 </head>
 
-<body>
-  <body>
+<body class="antialiased selection:bg-purple-500 selection:text-white">
 
-  <!-- NAVBAR GOES HERE -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#" style="font-weight: bold;">EV1 Cambodia</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <!-- BG Blobs -->
+  <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-blob"></div>
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-blob delay-2s"></div>
+    <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-blob delay-4s"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-500 rounded-lg grid place-items-center group-hover:rotate-12 transition">
+          <span class="font-bold">M</span>
+        </div>
+        <h1 class="text-xl font-bold">
+          Meta <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400">Technology</span>
+        </h1>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+        <li class="hover:text-white transition">Home</li>
+        <li class="hover:text-white transition">Services</li>
+        <li class="hover:text-white transition">Showcase</li>
+        <li class="hover:text-white transition">About</li>
+      </ul>
+
+      <button class="hidden md:block px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-semibold">
+        Let's Talk
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        </ul>
-      </div>
+      <button class="md:hidden text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/>
+        </svg>
+      </button>
     </div>
   </nav>
-  <!-- END NAVBAR -->
 
-  <div class="container py-5">
-    <div class="row g-4">
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center pt-24">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
-      <!-- Thumbnails -->
-      <div class="col-md-1">
-        <div class="sticky-col">
-          <img src="./images/model3in.png" class="thumb-img" onclick="changeMainImage('./images/model3in.png')" />
-          <img src="./images/image.png" class="thumb-img" onclick="changeMainImage('./images/image.png')" />
-          <img src="./images/backseat.png" class="thumb-img" onclick="changeMainImage('./images/backseat.png')" />
-          <img src="./images/trunk.png" class="thumb-img" onclick="changeMainImage('./images/trunk.png')" />
+      <!-- TEXT CONTENT -->
+      <div class="space-y-8">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/30 border border-purple-500/30 text-purple-300 text-xs font-mono">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute h-full w-full rounded-full bg-purple-400 opacity-75 animate-ping"></span>
+            <span class="relative h-2 w-2 rounded-full bg-purple-500"></span>
+          </span>
+          Next Gen Solution v4.0
+        </div>
+
+        <h2 class="text-5xl md:text-7xl font-extrabold leading-tight font-khmer">
+          យើងបង្កើត
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+             អនាគតឌីជីថល
+          </span>
+          <br><span>សម្រាប់អ្នក</span>
+        </h2>
+
+        <p class="text-gray-400 text-lg md:text-xl font-khmer max-w-lg">
+          ប្រែក្លាយអាជីវកម្មរបស់អ្នកជាមួយបច្ចេកវិទ្យាចុងក្រោយ។ យើងផ្តល់ដំណោះស្រាយ AI, Web3, និង Software Development កម្រិតខ្ពស់។
+        </p>
+
+        <!-- CTA BUTTONS -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button class="group relative px-8 py-4 bg-white text-black font-bold rounded-xl overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-100 transition"></div>
+            <span class="relative group-hover:text-white transition">Start Project</span>
+          </button>
+
+          <button class="px-8 py-4 rounded-xl border border-white/20 hover:bg-white/5 transition flex items-center gap-2">
+            View Work
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- CLIENTS -->
+        <div class="pt-6 flex gap-4 items-center">
+          <div class="flex -space-x-3">
+            <img class="w-10 h-10 rounded-full border-2 border-black" src="https://i.pravatar.cc/100?img=1">
+            <img class="w-10 h-10 rounded-full border-2 border-black" src="https://i.pravatar.cc/100?img=2">
+            <img class="w-10 h-10 rounded-full border-2 border-black" src="https://i.pravatar.cc/100?img=3">
+          </div>
+          <div class="text-sm">
+            <p class="font-bold">1,200+ Clients</p>
+            <p class="text-gray-500">Trusted globally</p>
+          </div>
         </div>
       </div>
 
-      <!-- Main Image -->
-      <div class="col-md-6">
-        <div class="sticky-col">
-          <img src="./images/model3.png" id="mainImage" class="main-img" />
+      <!-- IMAGE CARD -->
+      <div class="relative h-[400px] md:h-[600px] w-full rounded-3xl overflow-hidden border border-white/10">
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1374" 
+             class="absolute inset-0 w-full h-full object-cover duration-700 hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black"></div>
+
+        <div class="absolute bottom-6 left-6 right-6 p-4 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl">
+          <div class="flex justify-between items-center text-xs text-purple-400 font-mono mb-2">
+            <span>SYSTEM STATUS</span>
+            <span class="h-2 w-2 rounded-full bg-green-500"></span>
+          </div>
+          <div class="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-purple-500 to-cyan-500 w-[85%]"></div>
+          </div>
+          <p class="mt-2 text-xs text-gray-400 font-mono">Optimization: 98% Complete</p>
         </div>
       </div>
 
-      <!-- Product Info --> 
-      <div class="col-md-5">
-        <h2 style="font-weight: bold;">Tesla Model 3</h2>
-        <p>Tesla Model 3 is a sleek, all-electric sedan designed for efficiency, performance, and advanced technology. It seats up to five passengers and features a minimalist interior highlighted by a large touchscreen display for navigation, media, and vehicle controls. The Model 3 offers rear-wheel drive (RWD) and dual motor all-wheel drive (AWD) configurations, with quick acceleration and a quiet, comfortable ride.</p>
-
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">Check Out</button>
-        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#paymentModal">Payment</button>
-      </div>
     </div>
+  </section>
 
-    <!-- Related Products -->
-    <div class="mt-5">
-      <h3>Cars in showroom</h3>
+  <!-- CTA SECTION -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
 
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
+      <h2 class="text-4xl md:text-6xl font-bold mb-6">Ready to scale up?</h2>
+      <p class="text-gray-300 mb-10 text-lg">Join the revolution. Let’s build something extraordinary together.</p>
 
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/models.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">Tesla Model S</p></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/modelx.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">Tesla Model X</p></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/modelY.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">Tesla Model Y</p></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/cybertruck.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">Tesla Cybertruck</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <form class="max-w-md mx-auto space-y-4">
+        <input type="email" placeholder="Enter your email"
+          class="w-full px-6 py-4 rounded-full bg-white/5 border border-white/10 focus:border-purple-500 outline-none text-white placeholder:text-gray-600">
 
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/Han.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">BYD HAN EV</p></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/Tang.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">BYD Tang EV</p></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/seal.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">BYD Seal 07</p></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <img src="./images/sealion7.png" class="card-img-top related-img" />
-                  <div class="card-body"><p class="card-text">BYD Sealion7</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
+        <button class="w-full px-6 py-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 font-bold hover:scale-105 transition">
+          Get a Free Consultation
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
+      </form>
     </div>
-  </div>
+  </section>
 
-  <!-- Payment Modal -->
-  <div class="modal fade" id="paymentModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Payment</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">...,.......</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button class="btn btn-primary">Save</button>
-        </div>
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-black pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-10">
+
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Meta Technology</h2>
+        <p class="text-gray-500 text-sm font-khmer max-w-xs">
+          ដៃគូដ៏ល្អបំផុតរបស់អ្នកក្នុងការបង្កើតដំណោះស្រាយឌីជីថល។
+        </p>
       </div>
-    </div>
-  </div>
 
-  <!-- Checkout Modal -->
-  <div class="modal fade" id="checkoutModal" tabindex="-1">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Checkout</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <div class="flex gap-16">
+        <div>
+          <h4 class="text-white font-bold mb-4">Explore</h4>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="hover:text-purple-400 cursor-pointer">Home</li>
+            <li class="hover:text-purple-400 cursor-pointer">About</li>
+            <li class="hover:text-purple-400 cursor-pointer">Services</li>
+          </ul>
         </div>
-        <div class="modal-body">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control mb-3" placeholder="name@example.com" />
 
-          <label class="form-label">Payment Method</label>
-
-          <select class="form-select mb-3">
-          
-            <option selected>Choose payment</option>
-            <option value="1">ABA</option>
-            <option value="2">Wing</option>
-            <option value="3">ACLEDA</option>
-          </select>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="delivery" id="del1" />
-            <label class="form-check-label" for="del1">Delivery</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="delivery" id="del2" checked />
-            <label class="form-check-label" for="del2">Pick Up</label>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button class="btn btn-primary">Save</button>
+        <div>
+          <h4 class="text-white font-bold mb-4">Legal</h4>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="hover:text-purple-400 cursor-pointer">Privacy</li>
+            <li class="hover:text-purple-400 cursor-pointer">Terms</li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function changeMainImage(src) {
-      document.getElementById("mainImage").src = src;
-    }
-  </script>
-    ...
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function changeMainImage(src) {
-      document.getElementById("mainImage").src = src;
-    }
-  </script>
-
-  <!-- FOOTER GOES HERE -->
-  <footer class="bg-dark text-white py-4 mt-5">
-    <div class="container text-center">
-      <p class="mb-1">© 2025 MyShop. All rights reserved.</p>
-      <p class="small mb-0">Electric Vehicles | Services</p>
+    <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/5 text-gray-600 text-xs flex flex-col md:flex-row justify-between">
+      <p>&copy; 2025 Meta Technology. All rights reserved.</p>
+      <div class="flex gap-4 mt-4 md:mt-0">
+        <span>Facebook</span>
+        <span>Twitter</span>
+        <span>LinkedIn</span>
+      </div>
     </div>
+
   </footer>
-  <!-- END FOOTER -->
 
 </body>
-</html>
-
-</body>
-
 </html>
